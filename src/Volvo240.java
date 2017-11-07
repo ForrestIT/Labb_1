@@ -9,6 +9,7 @@ public class Volvo240 extends Car{
         modelName = "Volvo240";
         turbo = false;
         trimFactor = 1.25;
+        turboAmount = 1.0;
 
     }
 

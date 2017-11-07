@@ -8,7 +8,8 @@ public class Car {
     public String modelName; // The car model name
     public boolean turbo;
     public boolean turboOn;
-    public static double trimFactor = 1;
+    public double turboAmount;
+    public static double trimFactor;
 
     public Car (){
         stopEngine();
@@ -33,7 +34,7 @@ public class Car {
 
     public double speedFactor(){
         double turbo = 1;
-        if(turboOn) turbo = 1.3;
+        if(turboOn) turbo = turboAmount;
         return enginePower * 0.01 * turbo * trimFactor;
     }
 

@@ -9,6 +9,8 @@ public class Saab95 extends Car{
         turbo = true;
 	    turboOn = false;
         modelName = "Saab95";
+        turboAmount = 1.3;
+        trimFactor = 1.0;
     }
 
 }
