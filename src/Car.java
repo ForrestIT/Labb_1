@@ -6,7 +6,6 @@ public class Car {
     public double currentSpeed; // The current speed of the car
     public Color color; // Color of the car
     public String modelName; // The car model name
-    public boolean turbo;
     public boolean turboOn;
     public double turboAmount;
     public static double trimFactor;
@@ -40,7 +39,7 @@ public class Car {
 
 //-------------------------- Turbo ------------------------------------
     public void setTurboOn(){
-        turboOn = true;
+        turboOn = getTurbo(); //Sets turbo on if car have turbo.
     }
     public void setTurboOff(){
         turboOn = false;
@@ -70,7 +69,7 @@ public class Car {
         return currentSpeed;
     }
     public boolean getTurbo(){
-        return turbo;
+        return turboAmount > 1;
     }
 
     //-------------Setters-----------------------------

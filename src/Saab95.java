@@ -6,7 +6,6 @@ public class Saab95 extends Car{
         nrDoors = 2;
         color = Color.red;
         enginePower = 125;
-        turbo = true;
 	    turboOn = false;
         modelName = "Saab95";
         turboAmount = 1.3;

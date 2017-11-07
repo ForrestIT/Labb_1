@@ -7,7 +7,6 @@ public class Volvo240 extends Car{
         color = Color.black;
         enginePower = 100;
         modelName = "Volvo240";
-        turbo = false;
         trimFactor = 1.25;
         turboAmount = 1.0;
 
