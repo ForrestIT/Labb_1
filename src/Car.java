@@ -1,23 +1,30 @@
 import java.awt.*;
 
 public class Car {
-    public int nrDoors; // Number of doors on the car
-    public double enginePower; // Engine power of the car
-    public double currentSpeed; // The current speed of the car
-    public Color color; // Color of the car
-    public String modelName; // The car model name
-    public boolean turboOn;
-    public double turboAmount;
-    public static double trimFactor;
+    protected int nrDoors; // Number of doors on the car
+    protected double enginePower; // Engine power of the car
+    protected double currentSpeed; // The current speed of the car
+    protected Color color; // Color of the car
+    protected String modelName; // The car model name
+    protected boolean turboOn;
+    protected double turboAmount;
+    protected static double trimFactor;
 
-    public Car (){
+    public abstract Car (){
+        nrDoors = 0;
+        color = Color.black;
+        enginePower = 100;
+        modelName = "Car";
+        turboOn = false;
+        turboAmount = 1.0;
+        trimFactor = 1.0;
         stopEngine();
     }
 //--------------------- INC/DEC Speed ------------------------
-    public void incrementSpeed(double amount){
+    private void incrementSpeed(double amount){
     currentSpeed = Math.min(getCurrentSpeed() + speedFactor() * amount,enginePower);
 }
-    public void decrementSpeed(double amount){
+    private void decrementSpeed(double amount){
         currentSpeed = Math.max(getCurrentSpeed() - this.speedFactor() * amount,0);
     }
 
@@ -30,20 +37,12 @@ public class Car {
     }
 
 //---------------------- SpeedFactor ---------------------------------
-
-    public double speedFactor(){
+    private double speedFactor(){
         double turbo = 1;
         if(turboOn) turbo = turboAmount;
         return enginePower * 0.01 * turbo * trimFactor;
     }
 
-//-------------------------- Turbo ------------------------------------
-    public void setTurboOn(){
-        turboOn = getTurbo(); //Sets turbo on if car have turbo.
-    }
-    public void setTurboOff(){
-        turboOn = false;
-    }
 
 //-------------------------- Peddals --------------------------------
     // TODO fix this method according to lab pm
@@ -72,9 +71,17 @@ public class Car {
         return turboAmount > 1;
     }
 
-    //-------------Setters-----------------------------
+    //-------------------------Setters-----------------------------
     public void setColor(Color clr){
         color = clr;
     }
+    //-------------------------- Turbo ------------------------------------
+    public void setTurboOn(){
+        turboOn = getTurbo(); //Sets turbo on if car have turbo.
+    }
+    public void setTurboOff(){
+        turboOn = false;
+    }
+
 
 }
